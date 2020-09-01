@@ -233,7 +233,9 @@ public class FlutterQqPlugin implements MethodCallHandler {
                     requestCode == Constants.REQUEST_QQ_SHARE ||
                     requestCode == Constants.REQUEST_QZONE_SHARE ||
                     requestCode == Constants.REQUEST_APPBAR) {
-                Tencent.onActivityResultData(requestCode, resultCode, data, this);
+                if (data != null) {
+                    Tencent.onActivityResultData(requestCode, resultCode, data, this);
+                }
                 return true;
             }
             return false;
